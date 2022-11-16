@@ -61,8 +61,48 @@
     </style>
     <script>
         $(document).ready(function () {
+            // search_Member()
             // window.location.reload()
         });
+
+        function search_Member() {
+            let getName = $('#memberName').val().trim()
+
+            $.ajax({
+                type: "GET",
+                url: "/searchMember",
+                data: {},
+                success: function (response) {
+                    let rows = response['membersList']
+                    // console.log(rows)
+
+                    // var flag = new Boolean();
+                    let flag = false
+                    let color
+                    let name
+                    for(let i=0; i<rows.length; i++){
+                        let cur_name = rows[i]['name']
+                        let cur_color = rows[i]['color']
+
+                        if(cur_name === getName) {
+                            name = cur_name
+                            color = cur_color
+                            flag = Boolean(true)
+                            break
+                        }
+                    }
+
+                    // console.log(flag)
+
+                    if(flag) {
+                        alert(`${name}님은 오색조 ${color}멤버입니다.`)
+                    } else {
+                        alert(`${getName}님은 오색조 멤버가 아닙니다.`)
+                    }
+
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -96,8 +136,8 @@
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input id="memberName" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button onclick="search_Member()" class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -142,21 +182,21 @@
 
         <div class="row">
             <div class="col-lg-2">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
                 <a href="yellow">
-                    <img class="visualYellow" width="200" src="../static/image/coffee.jpg" alt="yellow">
+                    <img class="visualYellow" width="200" height="300" src="../static/image/yellowProfile.png" alt="yellow">
                 </a>
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
             </div>
         </div>
 
