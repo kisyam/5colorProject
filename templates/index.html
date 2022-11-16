@@ -55,14 +55,66 @@
         }
 
         .visualYellow:hover {
-            box-shadow: 0px 0px 10px 10px #F2B84B;
+            box-shadow: 0px 0px 10px 10px yellow;
             border-radius: 10px;
+        }
+        .visualOrange {
+            cursor: pointer;
+        }
+        .visualOrange:hover{
+            box-shadow: 0px 0px 10px 10px orange;
+            border-radius: 10px;
+        }
+        #fiveColor {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 10px 10px;
         }
     </style>
     <script>
         $(document).ready(function () {
+            // search_Member()
             // window.location.reload()
         });
+
+        function search_Member() {
+            let getName = $('#memberName').val().trim()
+
+            $.ajax({
+                type: "GET",
+                url: "/searchMember",
+                data: {},
+                success: function (response) {
+                    let rows = response['membersList']
+                    // console.log(rows)
+
+                    // var flag = new Boolean();
+                    let flag = false
+                    let color
+                    let name
+                    for(let i=0; i<rows.length; i++){
+                        let cur_name = rows[i]['name']
+                        let cur_color = rows[i]['color']
+
+                        if(cur_name === getName) {
+                            name = cur_name
+                            color = cur_color
+                            flag = Boolean(true)
+                            break
+                        }
+                    }
+
+                    // console.log(flag)
+
+                    if(flag) {
+                        alert(`${name}님은 오색조 ${color}멤버입니다.`)
+                    } else {
+                        alert(`${getName}님은 오색조 멤버가 아닙니다.`)
+                    }
+
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -96,8 +148,8 @@
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input id="memberName" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button onclick="search_Member()" class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
@@ -140,23 +192,25 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id = "fiveColor">
             <div class="col-lg-2">
-                <a href="yellow">
-                    <img class="visualYellow" width="200" src="../static/image/coffee.jpg" alt="yellow">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
+                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            </div>
+            <div class="col-lg-2">
+                <a href="orange">
+                <img class="visualOrange" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="주황색 자기소개">
                 </a>
             </div>
             <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
-            </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+                <a href="yellow">
+                    <img class="visualYellow" width="200" height="300" src="../static/image/yellowProfile.png" alt="yellow">
+                </a>
             </div>
         </div>
 

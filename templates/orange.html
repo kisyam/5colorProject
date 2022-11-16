@@ -45,7 +45,6 @@
                 }
             });
         }
-
         function save_comment() {
             let name = $('#name').val()
             let comment = $('#comment').val()
@@ -63,7 +62,6 @@
         }
         function delete_comment(num){
             let deletepw = document.getElementById(num.toString()).querySelector("input").value
-            console.log(deletepw, num)
             $.ajax({
                 type: "POST",
                 url: "/orange/delete",
@@ -74,6 +72,7 @@
                 }
             });
         }
+
     </script>
 </head>
 <body>

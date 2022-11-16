@@ -6,8 +6,21 @@ from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
-@app.route('/orange')
+# 오색조 멤버 구성 db 삽입
+# arr = [{'name':"김연수", 'color':"검정"},
+#        {'name':"정대신", 'color':"파랑"},
+#        {'name':"정호준", 'color':"카키"},
+#        {'name':"변다슬", 'color':"노랑"},
+#        {'name':"오길환", 'color':"주황"}]
+#
+# for i in arr:
+#     db.ProjectMembers.insert_one(i)
+@app.route('/')
 def home():
+    return render_template('index.html')
+
+@app.route('/orange')
+def orange():
     return render_template('orange.html')
 
 @app.route("/orange/save", methods=["POST"])
@@ -50,8 +63,10 @@ def comment_delete():
         db.orange.delete_one(gang)
     return jsonify({'msg': '삭제완료'})
 
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
+@app.route('/searchMember', methods=["GET"])
+def serchMember():
+    members_list = list(db.ProjectMembers.find({}, {'_id': False}))
+    return jsonify({'membersList':members_list})
 
 @app.route('/yellow')
 def getYellow():
