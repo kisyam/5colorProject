@@ -1,5 +1,8 @@
 body{
-    background-color: ivory;
+    background: #fceabb; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f8b500, #fceabb); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f8b500, #fceabb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .ground{
     display: flex;
@@ -14,7 +17,7 @@ body{
     padding: 20px 20px 20px 20px;
     margin: 15px 15px 15px 15px;
 
-    --borderWidth: 5px;
+    --borderWidth: 8px;
     background: orange;
     position: relative;
     border-radius: var(--borderWidth);
@@ -54,7 +57,10 @@ body{
     background-color: white;
     border-radius: 10px;
 
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 h1 {
     background-color: white;
@@ -93,18 +99,24 @@ h1 {
 #strength{
     background-color: white;
 
-    margin-top: 15px;
+    width: 200px;
 
-    text-align: center;
+    border-radius: 10px;
+}
+#mystrength {
+    background-color: white;
 
     border-radius: 10px;
 }
 #mystyle {
     background-color: white;
 
-    margin-top: 15px;
+    width: 200px;
 
-    text-align: center;
+    border-radius: 10px;
+}
+#teamstyle {
+    background-color: white;
 
     border-radius: 10px;
 }
@@ -146,7 +158,7 @@ h1 {
     padding: 20px 20px 20px 20px;
     margin: 15px 15px 15px 15px;
 
-    --borderWidth: 5px;
+    --borderWidth: 8px;
     background: orange;
     position: relative;
     border-radius: var(--borderWidth);
