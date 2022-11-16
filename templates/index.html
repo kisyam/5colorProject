@@ -65,6 +65,27 @@
             box-shadow: 0px 0px 10px 10px orange;
             border-radius: 10px;
         }
+        .visualKakhi {
+            cursor: pointer;
+        }
+        .visualKakhi:hover{
+            box-shadow: 0px 0px 10px 10px darkolivegreen;
+            border-radius: 10px;
+        }
+        .visualBlue {
+            cursor: pointer;
+        }
+        .visualBlue:hover {
+            box-shadow: 0px 0px 10px 10px blue;
+            border-radius: 10px;
+        }
+        .visualBlack {
+            cursor: pointer;
+        }
+        .visualBlack:hover{
+            box-shadow: 0px 0px 10px 10px black;
+            border-radius: 10px;
+        }
         #fiveColor {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -111,7 +132,6 @@
                     } else {
                         alert(`${getName}님은 오색조 멤버가 아닙니다.`)
                     }
-
                 }
             });
         }
@@ -194,13 +214,13 @@
 
         <div class="row" id = "fiveColor">
             <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+                <img class="visualKakhi" onclick="move()" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="...">
             </div>
             <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+                <img class="visualBlue" onclick="move()" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="...">
             </div>
             <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+                <img class="visualBlack" onclick="move()" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="...">
             </div>
             <div class="col-lg-2">
                 <a href="orange">
@@ -213,8 +233,6 @@
                 </a>
             </div>
         </div>
-
     </div>
-
 </body>
 </html>

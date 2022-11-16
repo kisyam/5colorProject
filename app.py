@@ -12,9 +12,10 @@ db = client.dbsparta
 #        {'name':"정호준", 'color':"카키"},
 #        {'name':"변다슬", 'color':"노랑"},
 #        {'name':"오길환", 'color':"주황"}]
-#
+
 # for i in arr:
 #     db.ProjectMembers.insert_one(i)
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -56,7 +57,6 @@ def comment_delete():
     }
 
     gang = db.orange.find_one(doc)
-    print(gang)
     if(gang == None):
         return jsonify({'msg' : '비밀번호 일치하지 않습니다'})
     else :
