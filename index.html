@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myPage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <div class="progressBar"></div>
+        </div>
+        <h2>나의 페이지</h2>
+        <hr class="top__line">
+        </hr>
+        <div class="top__text">
+            <h2>저를 소개합니다...</h2>
+        </div>
+        <div class="top">
+            <div class="image">
+                <p>
+                    김연수(NODE 4기)
+                </p>
+            </div>
+            <div class="introduce">
+                <p>저는 김연수입니다.</p>
+            </div>
+        </div>
+        <hr class="top__line">
+        </hr>
+        <div class="top__text">
+            <h2>저의 강점은!</h2>
+        </div>
+        <div class="middle">
+            <div class="strength">
+                <p>객관적으로 살펴본 나의 장점</p>
+            </div>
+        </div>
+        <hr class="top__line">
+        </hr>
+        <div class="top__text">
+            <h2>협업 Style</h2>
+        </div>
+        <div class="middle">
+            <div class="style">
+                <p>협업할 때 나의 스타일</p>
+            </div>
+        </div>
+        <hr class="top__line">
+        </hr>
+        <div class="top__text">
+            <h2>MBTI</h2>
+        </div>
+        <div class="middle">
+            <div class="mbti">
+                <p>INFP</p>
+            </div>
+            <div class="mbti_describe">
+                <p>mbti 설명</p>
+            </div>
+        </div>
+        <hr class="top__line">
+        </hr>
+        <div class="down">
+            <div class="sns">
+                <a href="https://velog.io/@kisyam" target="_blank">
+                    <img class="velog"
+                        src="https://velog.velcdn.com/images/velog/profile/9aa07f66-5fcd-41f4-84f2-91d73afcec28/green%20favicon.png"
+                        style="width:30px;height:30px;">
+                    </img>
+                </a>
+                <a href="https://www.instagram.com/sqjiyangpro/" target="_blank">
+                    <img class="insta"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"
+                        style="width:30px;height:30px;">
+                    </img>
+                </a>
+                <a href="https://github.com/kisyam" target="_blank">
+                    <img class="github" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+                        style="width:30px;height:30px;">
+                    </img>
+                </a>
+            </div>
+        </div>
+        <div class=" report">
+            <div class="report__sub">
+                <p>방명록</p>
+            </div>
+        </div>
+        <a href="main.html" class="bottom">메인 페이지 가기</a>
+    </section>
+</body>
+
+<script>
+    const progressBar = document.querySelector('.progressBar');
+    const section = document.querySelector('section');
+
+    const scrollProgressBar = () => {
+        let scrollDistance = -(section.getBoundingClientRect().top);
+        let progressPercentage =
+            (scrollDistance /
+                (section.getBoundingClientRect().height -
+                    document.documentElement.clientHeight)) * 100;
+        let val = Math.floor(progressPercentage);
+        progressBar.style.width = val + '%';
+        console.log(val);
+        if (val < 0) {
+            progressBar.style.width = '0%';
+        } else if (val >= 99) {
+            progressBar.style.width = '100%';
+        }
+    };
+
+    window.addEventListener('scroll', scrollProgressBar);
+</script>
+
+</body>
+
+
+</html>
