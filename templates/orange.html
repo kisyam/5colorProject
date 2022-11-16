@@ -21,7 +21,7 @@
         function show_comment() {
             $.ajax({
                 type: 'GET',
-                url: '/teampj',
+                url: '/orange/show',
                 data: {},
                 success: function (response) {
                     let rows = response['comments']
@@ -53,7 +53,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/teampj',
+                url: '/orange/save',
                 data: { name_give : name, comment_give : comment, pw_give : pw},
                 success: function (response) {
                     alert(response['msg'])
@@ -66,7 +66,7 @@
             console.log(deletepw, num)
             $.ajax({
                 type: "POST",
-                url: "/comment/delete",
+                url: "/orange/delete",
                 data: {deletepw_give:deletepw, num_give : num},
                 success: function (response) {
                     alert(response["msg"])
