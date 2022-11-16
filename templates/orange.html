@@ -57,7 +57,6 @@
         }
         function delete_comment(num){
             let deletepw = $('#deletePw').val()
-            console.log(num)
             $.ajax({
                 type: "POST",
                 url: "/comment/delete",
@@ -72,7 +71,7 @@
 </head>
 <body>
     <div class="ground">
-        <div class="background">
+        <div class="gradient-border">
             <h1>주황색 자기소개</h1>
             <div id="introgrid">
                 <img src="/static/MyPhoto_1203262320_0011.jpg" width="200px"  alt="자기소개 이미지">
@@ -118,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class ="guestcomment">
+        <div class ="guest-border">
             <div id = "gusetbox">
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="name" placeholder="nick"

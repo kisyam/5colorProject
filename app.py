@@ -22,7 +22,8 @@ def comment_post():
         'name' : name_receive,
         'comment': comment_receive,
         'pw': pw_receive,
-        'num' : count
+        'num' : count,
+        'done' : 0
     }
     db.orange.insert_one(doc)
     return jsonify({'msg': '응원 감사합니다'})
