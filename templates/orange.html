@@ -29,8 +29,8 @@
                                                 <p>${comment}</p>
                                                 <footer class="blockquote-footer">${name}</footer>
                                             </div>
-                                            <div>
-                                                <input type="password" class="form-control" id="deletePw" placeholder="비밀번호">
+                                            <div id="${num}">
+                                                <input type="password" class="form-control" placeholder="비밀번호">
                                                 <button onclick= "delete_comment(${num})" type="button" class="btn btn-dark"> 삭제하기 </button>
                                             </div>
                                         </div>`
@@ -56,7 +56,8 @@
             });
         }
         function delete_comment(num){
-            let deletepw = $('#deletePw').val()
+            let deletepw = document.getElementById(num.toString()).querySelector("input").value
+            console.log(deletepw, num)
             $.ajax({
                 type: "POST",
                 url: "/comment/delete",
@@ -76,15 +77,15 @@
             <div id="introgrid">
                 <img src="/static/MyPhoto_1203262320_0011.jpg" width="200px"  alt="자기소개 이미지">
                 <div id="introduction">
-                    안녕하세요 저는 주황색이죠<br>
-                    그렇습니다 주황색이라고 할수있죠<br>
-                    어떻게보면 저는 정말 주황색입니다<br>
+                    안녕하세요 저는 팀에서 주황색을 맡고있는 오길환 입니다<br>
+                    주황색은 따뜻한 느낌을 주는 난색으로 약동, 활력, 만족, 적극성을 상징한다고 합니다 <br>
+                    저는 <br>
                     그렇지 않습니까?<br>
                     저는 주황색을 사랑합니다<br>
                 </div>
             </div>
             <div id="strength">
-                객관적으로 살펴본 자신의 장점
+
             </div>
             <div id="mystyle">
                 협업하는 과정에서 자신의 스타일

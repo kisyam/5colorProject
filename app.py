@@ -37,13 +37,13 @@ def comment_get():
 def comment_delete():
     deletepw_receive = request.form['deletepw_give']
     num_receive = request.form['num_give']
-    print(deletepw_receive, num_receive)
     doc = {
         'num': float(num_receive),
         'pw': deletepw_receive
     }
 
     gang = db.orange.find_one(doc)
+    print(gang)
     if(gang == None):
         return jsonify({'msg' : '비밀번호 일치하지 않습니다'})
     else :
