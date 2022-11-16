@@ -1,13 +1,27 @@
 from flask import Flask, render_template, request, jsonify
-<<<<<<< HEAD
+import random
 app = Flask(__name__)
 
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.jnbuc2e.mongodb.net/Cluster0?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
+
+# 오색조 멤버 구성 db 삽입
+# arr = [{'name':"김연수", 'color':"검정"},
+#        {'name':"정대신", 'color':"파랑"},
+#        {'name':"정호준", 'color':"카키"},
+#        {'name':"변다슬", 'color':"노랑"},
+#        {'name':"오길환", 'color':"주황"}]
+#
+# for i in arr:
+#     db.ProjectMembers.insert_one(i)
+
 
 @app.route('/')
 def home():
+    return render_template('index.html')
+@app.route('/kakhi')
+def kakhi():
    return render_template('kakhi.html')
 
 @app.route("/kakhi_cmt", methods=["POST"])
@@ -38,31 +52,6 @@ def delete_comment():
     db.kakhi_cmt.delete_one({'num': int(num_receive)})
     return jsonify({'msg': '삭제 완료!'})
 
-
-if __name__ == '__main__':
-   app.run('0.0.0.0', port=5000, debug=True)
-
-
-=======
-import random
-app = Flask(__name__)
-
-from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/cluster0?retryWrites=true&w=majority')
-db = client.dbsparta
-
-# 오색조 멤버 구성 db 삽입
-# arr = [{'name':"김연수", 'color':"검정"},
-#        {'name':"정대신", 'color':"파랑"},
-#        {'name':"정호준", 'color':"카키"},
-#        {'name':"변다슬", 'color':"노랑"},
-#        {'name':"오길환", 'color':"주황"}]
-#
-# for i in arr:
-#     db.ProjectMembers.insert_one(i)
-@app.route('/')
-def home():
-    return render_template('index.html')
 
 @app.route('/orange')
 def orange():
@@ -150,4 +139,4 @@ def homework_get():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
->>>>>>> 3d7a4358b5c030b3a4b400ada8390c37e8a3bbeb
+
