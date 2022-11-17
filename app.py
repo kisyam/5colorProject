@@ -65,7 +65,7 @@ import random
 app = Flask(__name__)
 
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/cluster0?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:sparta@cluster0.sureleb.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbsparta
 
 # 오색조 멤버 구성 db 삽입
@@ -74,7 +74,7 @@ db = client.dbsparta
 #        {'name':"정호준", 'color':"카키"},
 #        {'name':"변다슬", 'color':"노랑"},
 #        {'name':"오길환", 'color':"주황"}]
-#
+
 # for i in arr:
 #     db.ProjectMembers.insert_one(i)
 
@@ -152,12 +152,12 @@ def comment_delete():
     }
 
     gang = db.orange.find_one(doc)
-    print(gang)
     if(gang == None):
         return jsonify({'msg' : '비밀번호 일치하지 않습니다'})
     else :
         db.orange.delete_one(gang)
-    return jsonify({'msg': '삭제완료'})
+        return jsonify({'msg': '삭제완료'})
+
 
 @app.route('/searchMember', methods=["GET"])
 def serchMember():

@@ -312,14 +312,35 @@
         }
 
         .visualYellow:hover {
-            box-shadow: 0px 0px 10px 10px yellow;
+            box-shadow: 0px 0px 10px 10px #F2B84B;
             border-radius: 10px;
         }
         .visualOrange {
             cursor: pointer;
         }
         .visualOrange:hover{
-            box-shadow: 0px 0px 10px 10px orange;
+            box-shadow: 0px 0px 10px 10px darkorange;
+            border-radius: 10px;
+        }
+        .visualKakhi {
+            cursor: pointer;
+        }
+        .visualKakhi:hover{
+            box-shadow: 0px 0px 10px 10px darkolivegreen;
+            border-radius: 10px;
+        }
+        .visualBlue {
+            cursor: pointer;
+        }
+        .visualBlue:hover {
+            box-shadow: 0px 0px 10px 10px blue;
+            border-radius: 10px;
+        }
+        .visualBlack {
+            cursor: pointer;
+        }
+        .visualBlack:hover{
+            box-shadow: 0px 0px 10px 10px black;
             border-radius: 10px;
         }
         #fiveColor {
@@ -335,43 +356,49 @@
         });
 
         function search_Member() {
-            let getName = $('#memberName').val().trim()
+    let inputName = $('#memberName').val()
 
-            $.ajax({
-                type: "GET",
-                url: "/searchMember",
-                data: {},
-                success: function (response) {
-                    let rows = response['membersList']
-                    // console.log(rows)
+    let getName
+    if(inputName === ''){
+        alert('이름을 입력해주세요')
+    } else {
+        getName = inputName.trim()
+    }
 
-                    // var flag = new Boolean();
-                    let flag = false
-                    let color
-                    let name
-                    for(let i=0; i<rows.length; i++){
-                        let cur_name = rows[i]['name']
-                        let cur_color = rows[i]['color']
+    $.ajax({
+        type: "GET",
+        url: "/searchMember",
+        data: {},
+        success: function (response) {
+            let rows = response['membersList']
+            // console.log(rows)
 
-                        if(cur_name === getName) {
-                            name = cur_name
-                            color = cur_color
-                            flag = Boolean(true)
-                            break
-                        }
-                    }
+            // var flag = new Boolean();
+            let flag = false
+            let color
+            let name
+            for(let i=0; i<rows.length; i++){
+                let cur_name = rows[i]['name']
+                let cur_color = rows[i]['color']
 
-                    // console.log(flag)
-
-                    if(flag) {
-                        alert(`${name}님은 오색조 ${color}멤버입니다.`)
-                    } else {
-                        alert(`${getName}님은 오색조 멤버가 아닙니다.`)
-                    }
-
+                if(cur_name === getName) {
+                    name = cur_name
+                    color = cur_color
+                    flag = Boolean(true)
+                    break
                 }
-            });
+            }
+
+            // console.log(flag)
+
+            if(flag) {
+                alert(`${name}님은 오색조 ${color}멤버입니다.`)
+            } else {
+                alert(`${getName}님은 오색조 멤버가 아닙니다.`)
+            }
         }
+    });
+}
     </script>
 </head>
 <body>
@@ -452,13 +479,14 @@
         <div class="row" id = "fiveColor">
             <div class="col-lg-2">
                 <a href="kakhi">
-                <img class="visualkakhi" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="kakhi">
+                    <img class="visualKakhi" onclick="move()" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="...">
+                </a>
             </div>
             <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+                <img class="visualBlue" onclick="move()" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="...">
             </div>
-            <div class="col-lg-2">
-                <img class="visual" onclick="move()" width="200" src="../static/image/coffee.jpg" alt="...">
+            <div class="black">
+                <img class="visualBlack" onclick="move()" width="200" height="300" src="../static/MyPhoto_1203262320_0011.jpg" alt="...">
             </div>
             <div class="col-lg-2">
                 <a href="orange">
@@ -471,9 +499,7 @@
                 </a>
             </div>
         </div>
-
     </div>
-
 </body>
 >>>>>>> a27ca9f4b0459d440843128b3a4c239fd9b8aa19
 </html>
