@@ -65,6 +65,7 @@ def comment_post():
 
     count = random.uniform(1, 1000)
 
+
     doc = {
         'name' : name_receive,
         'comment': comment_receive,
@@ -94,7 +95,7 @@ def comment_delete():
         return jsonify({'msg' : '비밀번호 일치하지 않습니다'})
     else :
         db.orange.delete_one(gang)
-    return jsonify({'msg': '삭제완료'})
+        return jsonify({'msg': '삭제완료'})
 
 @app.route('/searchMember', methods=["GET"])
 def serchMember():
