@@ -3,7 +3,7 @@ import random
 app = Flask(__name__)
 
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/cluster0?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://test:sparta@cluster0.sureleb.mongodb.net/?retryWrites=true&w=majority')
 db = client.dbsparta
 
 # 오색조 멤버 구성 db 삽입
@@ -65,7 +65,6 @@ def comment_post():
 
     count = random.uniform(1, 1000)
 
-
     doc = {
         'name' : name_receive,
         'comment': comment_receive,
@@ -96,6 +95,7 @@ def comment_delete():
     else :
         db.orange.delete_one(gang)
         return jsonify({'msg': '삭제완료'})
+
 
 @app.route('/searchMember', methods=["GET"])
 def serchMember():
