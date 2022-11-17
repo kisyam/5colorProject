@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
@@ -59,7 +59,7 @@ def color5_update():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5050, debug=True)
-=======
+
 from flask import Flask, render_template, request, jsonify
 import random
 app = Flask(__name__)
@@ -201,5 +201,3 @@ def homework_get():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
-
->>>>>>> a27ca9f4b0459d440843128b3a4c239fd9b8aa19
