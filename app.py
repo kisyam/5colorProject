@@ -12,17 +12,15 @@ client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/clu
 # client = MongoClient('mongodb+srv://test:sparta@cluster0.zi0ui9l.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=ca)
 db = client.dbsparta
 
-
-# 오색조 멤버 구성 db 삽입
-# arr = [{'name':"김연수", 'color':"검정"},
-#        {'name':"정대신", 'color':"파랑"},
-#        {'name':"정호준", 'color':"카키"},
-#        {'name':"변다슬", 'color':"노랑"},
-#        {'name':"오길환", 'color':"주황"}]
-
+# //////////////////////////////////오색조 db//////////////////
+# arr = [{'name': "김연수", 'color': "검정", 'html': "black"},
+#       {'name': "정대신", 'color': "파랑", 'html': "blue"},
+#       {'name': "정호준", 'color': "카키", 'html': "kakhi"},
+#       {'name': "변다슬", 'color': "노랑", 'html': "yellow"},
+#       {'name': "오길환", 'color': "주황", 'html': "orange"}]
+#
 # for i in arr:
-#     db.ProjectMembers.insert_one(i)
-
+#    db.ProjectMembers.insert_one(i)
 
 @app.route('/')
 def home():

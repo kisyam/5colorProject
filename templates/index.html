@@ -96,49 +96,54 @@
         });
 
         function search_Member() {
-        let inputName = $('#memberName').val()
+            let inputName = $('#memberName').val()
 
-        let getName
-        if(inputName === ''){
-            alert('이름을 입력해주세요')
-        } else {
-            getName = inputName.trim()
-        }
-
-    $.ajax({
-        type: "GET",
-        url: "/searchMember",
-        data: {},
-        success: function (response) {
-            let rows = response['membersList']
-            // console.log(rows)
-
-            // var flag = new Boolean();
-            let flag = false
-            let color
-            let name
-            for(let i=0; i<rows.length; i++){
-                let cur_name = rows[i]['name']
-                let cur_color = rows[i]['color']
-
-                if(cur_name === getName) {
-                    name = cur_name
-                    color = cur_color
-                    flag = Boolean(true)
-                    break
-                }
-            }
-
-            // console.log(flag)
-
-            if(flag) {
-                alert(`${name}님은 오색조 ${color}멤버입니다.`)
+            let getName
+            if (inputName === '') {
+                alert('이름을 입력해주세요')
             } else {
-                alert(`${getName}님은 오색조 멤버가 아닙니다.`)
+                getName = inputName.trim()
             }
+
+            $.ajax({
+                type: "GET",
+                url: "/searchMember",
+                data: {},
+                success: function (response) {
+                    let rows = response['membersList']
+                    // console.log(rows)
+
+                    // var flag = new Boolean();
+                    let flag = false
+                    let color
+                    let name
+                    for (let i = 0; i < rows.length; i++) {
+                        let cur_name = rows[i]['name']
+                        let cur_color = rows[i]['color']
+                        let cur_html = rows[i]['html']
+
+                        if (cur_name === getName) {
+                            name = cur_name
+                            color = cur_color
+                            html = cur_html
+                            flag = Boolean(true)
+                            break
+                        }
+                    }
+
+                    // console.log(flag)
+
+                    if (flag) {
+                        alert(`${name}님은 오색조 ${color}멤버입니다.`)
+                        if (confirm("개인 페이지로 넘어가시겠습니까?")) {
+                            location.href = `${html}`
+                        }
+                    } else {
+                        alert(`${getName}님은 오색조 멤버가 아닙니다.`)
+                    }
+                }
+            });
         }
-    });
-}
     </script>
 </head>
 <body>
