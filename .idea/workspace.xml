@@ -7,7 +7,12 @@
     <list default="true" id="bc4c000d-3c35-4c9d-a5d7-ca7043d7da54" name="Changes" comment="Changes">
       <change afterPath="$PROJECT_DIR$/templates/black.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/team1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/team1.iml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/ㅇㅇㅇㅇ.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ㅇㅇㅇㅇ.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+>>>>>>> 598a96c2cc1bed127de300320ddc5551bded07b4
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/kakhi.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/kakhi.html" afterDir="false" />
@@ -47,6 +52,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
@@ -59,6 +65,19 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.templateLanguages.PyTemplateLanguageModulesConfigurable&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/kimyeonsu/practice",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+>>>>>>> 598a96c2cc1bed127de300320ddc5551bded07b4
   }
 }</component>
   <component name="RunManager" selected="Flask 서버.Flask (app.py) (1)">
@@ -151,9 +170,14 @@
       <option name="presentableId" value="Default" />
       <updated>1668644228407</updated>
       <workItem from="1668644232225" duration="966000" />
+<<<<<<< HEAD
       <workItem from="1668650540185" duration="3436000" />
       <workItem from="1668654499522" duration="182000" />
       <workItem from="1668654693024" duration="492000" />
+=======
+      <workItem from="1668650540185" duration="779000" />
+      <workItem from="1668653562403" duration="210000" />
+>>>>>>> 598a96c2cc1bed127de300320ddc5551bded07b4
     </task>
     <servers />
   </component>
