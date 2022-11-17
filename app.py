@@ -1,72 +1,17 @@
 
 from flask import Flask, jsonify, render_template, request
-
+import random
+import certifi
 app = Flask(__name__)
 
-import certifi
+
 from pymongo import MongoClient
 
 ca = certifi.where()
-client = MongoClient('mongodb+srv://test:sparta@cluster0.zi0ui9l.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=ca)
+client = MongoClient('mongodb+srv://test:sparta@cluster0.j7axpsz.mongodb.net/cluster0?retryWrites=true&w=majority')
+# client = MongoClient('mongodb+srv://test:sparta@cluster0.zi0ui9l.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=ca)
 db = client.dbsparta
 
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route("/color5", methods=["POST"])
-def web_color5_post():
-
-    comment_list = list(db.color5.find({}, {'_id': False}))
-    name_receive = request.form['name_give']
-    comment_receive = request.form['comment_give']
-    count = len(comment_list) + 1
-
-    doc = {
-        'num' : count,
-        'name' : name_receive,
-        'comment' : comment_receive,
-    }
-    db.color5.insert_one(doc)
-
-    return jsonify({'msg': '게시글이 등록되었어요'})
-
-
-@app.route("/color5", methods=["GET"])
-def web_color5_get():
-    order_list = list(db.color5.find({}, {'_id': False}))
-
-    return jsonify({'orders': order_list})
-
-
-@app.route("/color5/delete", methods=["POST"])
-def web_color5_delete():
-    num_receive = request.form['num_give']
-    db.color5.delete_one({'num':int(num_receive)})
-    return jsonify({'msg': '삭제가 완료되었어요'})
-
-@app.route("/color5/update", methods=["POST"])
-def color5_update():
-    
-    name_receive = request.form['name_give']
-    num_receive = request.form['num_give']
-    comment_receive = request.form['comment_give']
-    db.color5.update_one({'num':int(num_receive)},{'$set':{'name':name_receive}}) 
-    db.color5.update_one({'num':int(num_receive)},{'$set':{'comment':comment_receive}}) 
-    return jsonify({'msg': '수정 완료!'})
-
-
-
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=5050, debug=True)
-
-from flask import Flask, render_template, request, jsonify
-import random
-app = Flask(__name__)
-
-from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.sureleb.mongodb.net/?retryWrites=true&w=majority')
-db = client.dbsparta
 
 # 오색조 멤버 구성 db 삽입
 # arr = [{'name':"김연수", 'color':"검정"},
@@ -82,6 +27,8 @@ db = client.dbsparta
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# ////////////////////////////kakhi///////////////////////
 @app.route('/kakhi')
 def kakhi():
    return render_template('kakhi.html')
@@ -113,6 +60,7 @@ def delete_comment():
     num_receive = request.form['num_give']
     db.kakhi_cmt.delete_one({'num': int(num_receive)})
     return jsonify({'msg': '삭제 완료!'})
+# ////////////////////////////kakhi///////////////////////
 
 
 @app.route('/orange')
@@ -158,7 +106,7 @@ def comment_delete():
         db.orange.delete_one(gang)
         return jsonify({'msg': '삭제완료'})
 
-
+# ////////////////////////////yellow///////////////////////
 @app.route('/searchMember', methods=["GET"])
 def serchMember():
     members_list = list(db.ProjectMembers.find({}, {'_id': False}))
@@ -198,7 +146,9 @@ def homework_post():
 def homework_get():
     visitor_list = list(db.YellowVbook.find({}, {'_id': False}))
     return jsonify({'visitorbooks':visitor_list})
+# ////////////////////////////yellow///////////////////////
 
+# ////////////////////////////black///////////////////////
 @app.route('/black')
 def black():
     return render_template('black.html')
@@ -242,7 +192,7 @@ def color5_update():
     db.color5.update_one({'num': int(num_receive)}, {'$set': {'name': name_receive}})
     db.color5.update_one({'num': int(num_receive)}, {'$set': {'comment': comment_receive}})
     return jsonify({'msg': '수정 완료!'})
-
+# ////////////////////////////black///////////////////////
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
